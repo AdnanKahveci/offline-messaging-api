@@ -103,6 +103,4 @@ Node.js, Express, TypeScript ve MySQL ile oluşturulmuş çevrimdışı mesajla�
 
 Swagger belgelerine sunucu çalışırken /api-docs adresinden ulaşılabilir.
 
-## Lisans
 
-ISC 
