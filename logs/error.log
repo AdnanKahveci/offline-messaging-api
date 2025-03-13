@@ -1,0 +1,23 @@
+2025-03-13 01:06:28 [ERROR]: Registration error: SequelizeValidationError: Validation error: Validation len on password failed
+2025-03-13 01:06:28 [ERROR]: Error: Validation error: Validation len on password failed
+2025-03-13 01:06:38 [ERROR]: Registration error: SequelizeValidationError: Validation error: Validation len on password failed
+2025-03-13 01:06:38 [ERROR]: Error: Validation error: Validation len on password failed
+2025-03-13 01:06:56 [ERROR]: Registration error: SequelizeValidationError: Validation error: Validation len on password failed
+2025-03-13 01:06:56 [ERROR]: Error: Validation error: Validation len on password failed
+2025-03-13 01:07:11 [ERROR]: Error: Invalid credentials
+2025-03-13 01:08:06 [ERROR]: Registration error: SequelizeValidationError: Validation error: Validation len on password failed
+2025-03-13 01:08:06 [ERROR]: Error: Validation error: Validation len on password failed
+2025-03-13 01:08:47 [ERROR]: Error: Username or email already exists
+2025-03-13 01:08:54 [ERROR]: Error: Username or email already exists
+2025-03-13 01:09:04 [ERROR]: Error: Username or email already exists
+2025-03-13 01:09:29 [ERROR]: Error: Username or email already exists
+2025-03-13 01:09:41 [ERROR]: Error: Username or email already exists
+2025-03-13 01:09:48 [ERROR]: Error: Username or email already exists
+2025-03-13 01:18:35 [ERROR]: Error: Username or email already exists
+2025-03-13 01:18:54 [ERROR]: Error: Username or email already exists
+2025-03-13 01:19:34 [ERROR]: Error: Username or email already exists
+2025-03-13 01:23:51 [ERROR]: Error: Invalid credentials
+2025-03-13 01:26:59 [ERROR]: Error: Invalid credentials
+2025-03-13 01:27:51 [ERROR]: Error: Invalid credentials
+2025-03-13 01:29:54 [ERROR]: Error: You cannot send messages to this user
+2025-03-13 17:35:30 [ERROR]: Failed to start server: SequelizeConnectionRefusedError: connect ECONNREFUSED ::1:3306
