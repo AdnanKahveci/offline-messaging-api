@@ -1,109 +1,101 @@
-# Offline Messaging API
+# Çevrimdışı Mesajlaşma API'si
 
-A RESTful API for offline messaging built with Node.js, Express, TypeScript, and MySQL.
+Node.js, Express, TypeScript ve MySQL ile oluşturulmuş çevrimdışı mesajlaşma için RESTful API.
 
-## Features
+## Özellikler
 
-- User authentication (register, login)
-- Messaging between users
-- User blocking functionality
-- Activity logging
-- Comprehensive error handling
-- API documentation with Swagger
+- Kullanıcı kimlik doğrulaması (kayıt, oturum açma)
+- Kullanıcılar arasında mesajlaşma
+- Kullanıcı engelleme işlevi
+- Etkinlik kaydı
+- Kapsamlı hata işleme
+- Swagger ile API dokümantasyonu
 
-## API Usage Scenarios
+## API Kullanım Senaryoları
 
-- Users can create accounts and log in
-- Users can message each other as long as they know the username
-- Users can access their message history
-- Users can block other users to prevent receiving messages
-- Activity logs (login, invalid login, etc.) can be viewed by users
-- Critical error details are not exposed to users and all errors are logged
+- Kullanıcılar hesap oluşturabilir ve oturum açabilir
+- Kullanıcılar kullanıcı adını bildikleri sürece birbirlerine mesaj gönderebilirler
+- Kullanıcılar mesaj geçmişlerine erişebilir
+- Kullanıcılar mesaj almayı önlemek için diğer kullanıcıları engelleyebilir
+- Etkinlik günlükleri (giriş, geçersiz giriş, vb.) kullanıcılar tarafından görüntülenebilir
+- Kritik hata ayrıntıları kullanıcılara gösterilmez ve tüm hatalar günlüğe kaydedilir
 
-## Technical Requirements
+## Teknik Gereksinimler
 
-- Built with Node.js and TypeScript
-- RESTful architecture
-- Test coverage of at least 5%
-- MySQL database with Sequelize ORM
+- Node.js ve TypeScript ile oluşturuldu
+- RESTful mimarisi
+- Test kapsamı en az %5
+- Sequelize ORM ile MySQL veritabanı
 
-## Database Design
+## Veritabanı Tasarımı
 
-### Tables
+### Tablolar
 
-- Users (id, username, email, password, createdAt, updatedAt)
-- Messages (id, senderId, receiverId, content, createdAt)
+- Kullanıcılar (id, kullanıcı adı, e-posta, şifre, createdAt, updatedAt)
+- Mesajlar (id, senderId, receiverId, content, createdAt)
 - BlockedUsers (id, blockerId, blockedId, createdAt)
 - ActivityLogs (id, userId, action, timestamp)
 
-## API Endpoints
+## API Uç Noktaları
 
-### Authentication
+### Kimlik Doğrulama
 
-- POST /api/auth/register - Register a new user
-- POST /api/auth/login - User login
+- POST /api/auth/register - Yeni bir kullanıcı kaydedin
+- POST /api/auth/login - Kullanıcı girişi
 
-### User Management
+### Kullanıcı Yönetimi
 
-- GET /api/users/:id - Get user information
-- GET /api/users/me - Get current user profile
-- PUT /api/users/me - Update user profile
-- GET /api/users/search - Search users by username
+- GET /api/users/:id - Kullanıcı bilgilerini alın
+- GET /api/users/me - Geçerli kullanıcı profilini al
+- PUT /api/users/me - Kullanıcı profilini güncelleyin
+- GET /api/users/search - Kullanıcıları kullanıcı adına göre arama
 
-### Messaging
+### Mesajlaşma
 
-- POST /api/messages - Send a message
-- GET /api/messages?userId=2 - Get messages between two users
-- GET /api/messages/me - Get all user conversations
+- POST /api/messages - Mesaj gönderme
+- GET /api/messages?userId=2 - İki kullanıcı arasındaki mesajları al
+- GET /api/messages/me - Tüm kullanıcı konuşmalarını al
 
-### Blocking
+### Engelleme
 
-- POST /api/block - Block a user
-- GET /api/block - Get list of blocked users
-- DELETE /api/block/:id - Unblock a user
+- POST /api/block - Bir kullanıcıyı engelle
+- GET /api/block - Engellenen kullanıcıların listesini al
+- DELETE /api/block/:id - Bir kullanıcının engelini kaldırın
 
-### Activity Logs
+### Etkinlik Günlükleri
 
-- GET /api/activity - Get user activity logs
-- POST /api/activity - Create activity log
+- GET /api/activity - Kullanıcı etkinlik günlüklerini alın
+- POST /api/activity - Etkinlik günlüğü oluştur
 
-## Setup and Installation
+## Kurulum ve Yükleme
 
-1. Clone the repository
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Create a `.env` file with the following variables:
-   ```
-   DB_HOST=localhost
+1. Depoyu klonlayın
+2. Bağımlılıkları yükleyin:
+   
+npm install
+
+3. Aşağıdaki değişkenleri içeren bir .env dosyası oluşturun:
+   
+DB_HOST=localhost
    DB_USER=root
    DB_PASSWORD=''
    DB_NAME=chatmessage
    JWT_SECRET=your_jwt_secret
-   PORT=3000
-   ```
-4. Run the application:
-   ```
-   npm start
-   ```
+
+4. Uygulamayı çalıştırın:
    
-## Development
+npm start
 
-```
+   
+## Gelişim
+
 npm run dev
-```
 
-## Testing
 
-```
-npm test
-```
+## API Dokümantasyonu
 
-## API Documentation
+Swagger belgelerine sunucu çalışırken /api-docs adresinden ulaşılabilir.
 
-Swagger documentation is available at `/api-docs` when the server is running.
-
-## License
+## Lisans
 
 ISC 
