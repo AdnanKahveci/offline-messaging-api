@@ -70,27 +70,34 @@ Node.js, Express, TypeScript ve MySQL ile oluşturulmuş çevrimdışı mesajla�
 ## Kurulum ve Yükleme
 
 1. Depoyu klonlayın
-2. Bağımlılıkları yükleyin:
-   
-npm install
-
+   ```bash
+   git clone https://github.com/AdnanKahveci/offline-messaging-api.git
+   ```
+3. Bağımlılıkları yükleyin:
+   ```bash 
+   npm install
+   ```
 3. Aşağıdaki değişkenleri içeren bir .env dosyası oluşturun:
    
-DB_HOST=localhost
-   DB_USER=root
-   DB_PASSWORD=''
-   DB_NAME=chatmessage
-   JWT_SECRET=your_jwt_secret
-
-4. Uygulamayı çalıştırın:
+      DB_HOST=localhost
    
-npm start
+      DB_USER=root
+      
+      DB_PASSWORD=' '
+      
+      DB_NAME=chatmessage
+      
+      JWT_SECRET=your_jwt_secret
 
+5. Uygulamayı çalıştırın:
+   ```bash 
+   npm start
+   ```
    
 ## Gelişim
-
-npm run dev
-
+   ```bash
+   npm run dev
+   ```
 
 ## API Dokümantasyonu
 
