@@ -41,7 +41,7 @@ export const register = async (req: Request, res: Response, next: NextFunction) 
     const token = jwt.sign(
       { id: user.id, username: user.username },
       process.env.JWT_SECRET || '123123',
-      { expiresIn: '1d' }
+      { expiresIn: '15m' }
     );
 
     // Return user data and token

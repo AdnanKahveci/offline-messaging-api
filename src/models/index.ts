@@ -1,5 +1,5 @@
 import User from './user.model';
-import Message from './Message.model';
+import Message from './message.model';
 import BlockedUser from './blockedUser.model';
 import ActivityLog from './activityLog.model';
 

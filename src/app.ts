@@ -46,22 +46,8 @@ const swaggerOptions = {
         description: 'Development server',
       },
     ],
-    components: {
-      securitySchemes: {
-        bearerAuth: {
-          type: 'http',
-          scheme: 'bearer',
-          bearerFormat: 'JWT',
-        },
-      },
-    },
-    security: [
-      {
-        bearerAuth: [],
-      },
-    ],
   },
-  apis: ['./src/routes/*.ts'], 
+  apis: ['./src/routes/*.ts'], // Path to the API docs
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -83,9 +69,14 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-// Database connection 
+// Database connection and server start
 const startServer = async () => {
   try {
+    // Test database connection first
+    await sequelize.authenticate();
+    logger.info('Database connection has been established successfully.');
+    
+    // Force true will drop and recreate all tables
     await sequelize.sync({ force: true });
     logger.info('Database connected successfully and tables recreated');
     
