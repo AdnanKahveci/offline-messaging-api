@@ -25,7 +25,7 @@ export const getActivityLogs = async (req: Request, res: Response, next: NextFun
       offset,
     });
 
-    // Calculate pagination
+    // Pagination
     const totalPages = Math.ceil(logs.count / limit);
 
     res.status(200).json({

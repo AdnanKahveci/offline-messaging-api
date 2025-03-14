@@ -10,7 +10,7 @@ interface ActivityLogAttributes {
   timestamp?: Date;
 }
 
-// ActivityLog creation attributes interface (id is optional for creation)
+// ActivityLog creation attributes interface
 interface ActivityLogCreationAttributes extends Optional<ActivityLogAttributes, 'id' | 'timestamp'> {}
 
 // ActivityLog model class

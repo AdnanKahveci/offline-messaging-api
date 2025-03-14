@@ -26,7 +26,7 @@ interface TokenPayload {
  */
 export const authenticate = (req: Request, res: Response, next: NextFunction): void => {
   try {
-    // Get token from header
+    // Check for token
     const authHeader = req.headers.authorization;
     
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
@@ -43,7 +43,7 @@ export const authenticate = (req: Request, res: Response, next: NextFunction): v
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET || '123123') as TokenPayload;
     
-    // Find user by id and attach to request
+    // Find user by ID
     User.findByPk(decoded.id)
       .then(user => {
         if (!user) {

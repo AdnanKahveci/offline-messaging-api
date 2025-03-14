@@ -75,7 +75,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
     });
 
     if (!user) {
-      // Log invalid login attempt
+
       logger.warn(`Invalid login attempt for username: ${username}`);
       return next(new AppError('Invalid credentials', 401));
     }
@@ -84,7 +84,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
     const isMatch = await user.comparePassword(password);
 
     if (!isMatch) {
-      // Log invalid login attempt
+      
       await ActivityLog.create({
         userId: user.id,
         action: 'Invalid login attempt',

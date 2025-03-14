@@ -10,7 +10,7 @@ interface BlockedUserAttributes {
   createdAt?: Date;
 }
 
-// BlockedUser creation attributes interface (id is optional for creation)
+// BlockedUser creation attributes interface
 interface BlockedUserCreationAttributes extends Optional<BlockedUserAttributes, 'id'> {}
 
 // BlockedUser model class

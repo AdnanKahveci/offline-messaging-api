@@ -38,7 +38,7 @@ export const getUserById = async (req: Request, res: Response, next: NextFunctio
  */
 export const getCurrentUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    // User is attached to request in auth middleware
+    // Get user ID from JWT
     const userId = req.user.id;
 
     // Find user by ID
@@ -77,7 +77,7 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
       return next(new AppError('User not found', 404));
     }
 
-    // Update user fields
+    // Update user data
     if (email) user.email = email;
     if (password) user.password = password;
 

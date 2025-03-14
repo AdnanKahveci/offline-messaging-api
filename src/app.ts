@@ -13,10 +13,8 @@ import messageRoutes from './routes/message.routes';
 import blockRoutes from './routes/block.routes';
 import activityRoutes from './routes/activity.routes';
 
-// Load environment variables
 dotenv.config();
 
-// Initialize Express app
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
 
@@ -25,7 +23,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Request logger middleware
+// Logger middleware
 app.use((req: Request, res: Response, next: NextFunction) => {
   logger.info(`${req.method} ${req.url}`);
   next();
@@ -47,7 +45,7 @@ const swaggerOptions = {
       },
     ],
   },
-  apis: ['./src/routes/*.ts'], // Path to the API docs
+  apis: ['./src/routes/*.ts'], 
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -60,7 +58,7 @@ app.use('/api/messages', messageRoutes);
 app.use('/api/block', blockRoutes);
 app.use('/api/activity', activityRoutes);
 
-// Error handling middleware
+// Error handling 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   logger.error(`Error: ${err.message}`);
   res.status(500).json({
@@ -69,14 +67,14 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-// Database connection and server start
+
 const startServer = async () => {
   try {
-    // Test database connection first
+    // Test database 
     await sequelize.authenticate();
     logger.info('Database connection has been established successfully.');
     
-    // Force true will drop and recreate all tables
+    // Recreate tables
     await sequelize.sync({ force: true });
     logger.info('Database connected successfully and tables recreated');
     

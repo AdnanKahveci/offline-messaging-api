@@ -14,7 +14,7 @@ export const sendMessage = async (req: Request, res: Response, next: NextFunctio
     const { receiverUsername, content } = req.body;
     const senderId = req.user.id;
 
-    // Check if receiver exists by username
+    // Find receiver by username
     const receiver = await User.findOne({
       where: { username: receiverUsername }
     });
@@ -25,7 +25,7 @@ export const sendMessage = async (req: Request, res: Response, next: NextFunctio
 
     const receiverId = receiver.id;
 
-    // Check if sender is blocked by receiver
+    // Check if user is blocked
     const isBlocked = await BlockedUser.findOne({
       where: {
         blockerId: receiverId,
@@ -68,7 +68,7 @@ export const getMessages = async (req: Request, res: Response, next: NextFunctio
       return next(new AppError('Username query parameter is required', 400));
     }
 
-    // Find user by username
+    // Find other user by username
     const otherUser = await User.findOne({
       where: { username }
     });
@@ -142,7 +142,7 @@ export const getUserMessages = async (req: Request, res: Response, next: NextFun
       limit: 100,
     });
 
-    // Group messages by conversation
+    // Group messages by user
     const conversations = messages.reduce((acc: any, message: any) => {
       const otherUserId = message.senderId === userId ? message.receiverId : message.senderId;
       const otherUser = message.senderId === userId ? message.receiver : message.sender;

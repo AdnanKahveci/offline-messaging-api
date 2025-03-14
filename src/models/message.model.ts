@@ -11,7 +11,7 @@ interface MessageAttributes {
   createdAt?: Date;
 }
 
-// Message creation attributes interface (id is optional for creation)
+// Message creation attributes interface
 interface MessageCreationAttributes extends Optional<MessageAttributes, 'id'> {}
 
 // Message model class
